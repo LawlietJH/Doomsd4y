@@ -35,7 +35,6 @@ def getDiaBaseSiglo(Anio):
 def getDiaBaseDecada(Anio):
 	
 	DiaBase = Anio % 100		# Obtenemos Los Dos Ultimos Digitos: '123456 % 100 = 56'
-	print(DiaBase)
 	
 	A1 = DiaBase // 12
 	A2 = DiaBase % 12
@@ -287,33 +286,31 @@ def Main():
 	
 	DBS = getDiaBaseSiglo(Anio)
 	
-	if(DBS==0):   print("\n\t [*] Día Base Del Siglo: Domingo")
-	elif(DBS==1): print("\n\t [*] Día Base Del Siglo: Lunes")
-	elif(DBS==2): print("\n\t [*] Día Base Del Siglo: Martes")
-	elif(DBS==3): print("\n\t [*] Día Base Del Siglo: Miercoles")
-	elif(DBS==4): print("\n\t [*] Día Base Del Siglo: Jueves")
-	elif(DBS==5): print("\n\t [*] Día Base Del Siglo: Viernes")
-	elif(DBS==6): print("\n\t [*] Día Base Del Siglo: Sábado")
+	if(DBS==0):   print("\n\t [*] Doomsday Base Del Siglo: Domingo")
+	elif(DBS==2): print("\n\t [*] Doomsday Base Del Siglo: Martes")
+	elif(DBS==3): print("\n\t [*] Doomsday Base Del Siglo: Miercoles")
+	elif(DBS==5): print("\n\t [*] Doomsday Base Del Siglo: Viernes")
 	
 	DBD = getDiaBaseDecada(Anio)
 	getDoomsday(DBD, DBS)
 	CalcularDD(Dia, Mes, EsBisiesto)
 	
-	if(DoomAnio==0):   print("\n\t [*] Doomsday: Domingo")
-	elif(DoomAnio==1): print("\n\t [*] Doomsday: Lunes")
-	elif(DoomAnio==2): print("\n\t [*] Doomsday: Martes")
-	elif(DoomAnio==3): print("\n\t [*] Doomsday: Miercoles")
-	elif(DoomAnio==4): print("\n\t [*] Doomsday: Jueves")
-	elif(DoomAnio==5): print("\n\t [*] Doomsday: Viernes")
-	elif(DoomAnio==6): print("\n\t [*] Doomsday: Sábado")
+	Anio = str(Anio)
+	if(DoomAnio==0):   print("\n\t [*] Doomsdays del Año " + Anio + ": Domingo")
+	elif(DoomAnio==1): print("\n\t [*] Doomsdays del Año " + Anio + ": Lunes")
+	elif(DoomAnio==2): print("\n\t [*] Doomsdays del Año " + Anio + ": Martes")
+	elif(DoomAnio==3): print("\n\t [*] Doomsdays del Año " + Anio + ": Miercoles")
+	elif(DoomAnio==4): print("\n\t [*] Doomsdays del Año " + Anio + ": Jueves")
+	elif(DoomAnio==5): print("\n\t [*] Doomsdays del Año " + Anio + ": Viernes")
+	elif(DoomAnio==6): print("\n\t [*] Doomsdays del Año " + Anio + ": Sábado")
 	
-	if(DiaSem==0):   print("\n\n\t\t [*] Dia De La Semana: Domingo")
-	elif(DiaSem==1): print("\n\n\t\t [*] Dia De La Semana: Lunes")
-	elif(DiaSem==2): print("\n\n\t\t [*] Dia De La Semana: Martes")
-	elif(DiaSem==3): print("\n\n\t\t [*] Dia De La Semana: Miercoles")
-	elif(DiaSem==4): print("\n\n\t\t [*] Dia De La Semana: Jueves")
-	elif(DiaSem==5): print("\n\n\t\t [*] Dia De La Semana: Viernes")
-	elif(DiaSem==6): print("\n\n\t\t [*] Dia De La Semana: Sábado")
+	if(DiaSem==0):   print("\n\n ------> [+] Dia De La Semana: Domingo")
+	elif(DiaSem==1): print("\n\n ------> [+] Dia De La Semana: Lunes")
+	elif(DiaSem==2): print("\n\n ------> [+] Dia De La Semana: Martes")
+	elif(DiaSem==3): print("\n\n ------> [+] Dia De La Semana: Miercoles")
+	elif(DiaSem==4): print("\n\n ------> [+] Dia De La Semana: Jueves")
+	elif(DiaSem==5): print("\n\n ------> [+] Dia De La Semana: Viernes")
+	elif(DiaSem==6): print("\n\n ------> [+] Dia De La Semana: Sábado")
 
 
 
@@ -323,7 +320,7 @@ def Main():
 
 while True:
 	
-	#~ try:
+	try:
 		Main()
-	#~ except: print("\n\n\t\t Error")
+	except: print("\n\n\t\t Error")
 
