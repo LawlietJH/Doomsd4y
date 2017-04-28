@@ -8,23 +8,23 @@
 #  ██████╔╝╚██████╔╝╚██████╔╝██║ ╚═╝ ██║███████║██████╔╝     ██║   ██║   
 #  ╚═════╝  ╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═════╝      ╚═╝   ╚═╝   
 #                                                         By: LawlietJH
-#                                                               v1.0.3
+#                                                               v1.0.4
 # Fuente: 'ANSI Shadow' - Desde: http://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=Doomsd4y
 import os
 
 
 
 Autor = "LawlietJH"
-Versión = "v1.0.3"
+Versión = "v1.0.4"
 
 
 
 def getFecha(Fecha):
 	
-	if "/" in Fecha:
-		Fecha = Fecha.split("/")
-	elif "-" in Fecha:
-		Fecha = Fecha.split("-")
+	if Fecha == "": print("\n\n\t\t [!] Escribe Una Fecha...", end="")
+	
+	Fecha = Fecha.replace(" ", "").replace("-", "/").replace(".", "/").replace("_", "/").replace(",", "/").replace("|", "/").replace("\\", "/")
+	Fecha = Fecha.split("/")
 	
 	return Fecha
 
@@ -33,7 +33,7 @@ def getFecha(Fecha):
 def getDiaBaseSiglo(Anio):
 	
 	DiaBaseSiglo = 0		# La Doble Diagonal Devuelve solo el Número Entero De La División: '69 // 100 = 0', '69 / 100 = 0.69'
-	Siglo = Anio // 100		# Así, Obtenemos Todos Los Digitos Excepto Los 2 Ultimos: '123456 / 100 = 1234'
+	Siglo = Anio // 100		# Así, Obtenemos Todos Los Digitos Excepto Los 2 Ultimos: '123456 // 100 = 1234'
 	
 	if Siglo % 4 == 0: DiaBaseSiglo = 2
 	elif Siglo % 4 == 1: DiaBaseSiglo = 0
@@ -336,7 +336,7 @@ def Main():
 	
 	if(DBS==0):   print("\n\t [*] Doomsday Base Del Siglo: Domingo", end="")
 	elif(DBS==2): print("\n\t [*] Doomsday Base Del Siglo: Martes", end="")
-	elif(DBS==3): print("\n\t [*] Doomsday Base Del Siglo: Miercoles", end="")
+	elif(DBS==3): print("\n\t [*] Doomsday Base Del Siglo: Miércoles", end="")
 	elif(DBS==5): print("\n\t [*] Doomsday Base Del Siglo: Viernes", end="")
 	
 	DBD = getDiaBaseDecada(Anio)
@@ -347,7 +347,7 @@ def Main():
 	if(DoomAnio==0):   print("\n\t [*] Doomsdays del Año " + Anio + ": Domingo")
 	elif(DoomAnio==1): print("\n\t [*] Doomsdays del Año " + Anio + ": Lunes")
 	elif(DoomAnio==2): print("\n\t [*] Doomsdays del Año " + Anio + ": Martes")
-	elif(DoomAnio==3): print("\n\t [*] Doomsdays del Año " + Anio + ": Miercoles")
+	elif(DoomAnio==3): print("\n\t [*] Doomsdays del Año " + Anio + ": Miércoles")
 	elif(DoomAnio==4): print("\n\t [*] Doomsdays del Año " + Anio + ": Jueves")
 	elif(DoomAnio==5): print("\n\t [*] Doomsdays del Año " + Anio + ": Viernes")
 	elif(DoomAnio==6): print("\n\t [*] Doomsdays del Año " + Anio + ": Sábado")
@@ -355,7 +355,7 @@ def Main():
 	if(DiaSem==0):   print("\n\n ------> [+] Dia De La Semana: Domingo")
 	elif(DiaSem==1): print("\n\n ------> [+] Dia De La Semana: Lunes")
 	elif(DiaSem==2): print("\n\n ------> [+] Dia De La Semana: Martes")
-	elif(DiaSem==3): print("\n\n ------> [+] Dia De La Semana: Miercoles")
+	elif(DiaSem==3): print("\n\n ------> [+] Dia De La Semana: Miércoles")
 	elif(DiaSem==4): print("\n\n ------> [+] Dia De La Semana: Jueves")
 	elif(DiaSem==5): print("\n\n ------> [+] Dia De La Semana: Viernes")
 	elif(DiaSem==6): print("\n\n ------> [+] Dia De La Semana: Sábado")
@@ -373,6 +373,14 @@ if __name__ == "__main__":
 			
 			Main()
 			
-		except: print("\n\n\t\t Error")
+		except KeyboardInterrupt:
+			
+			#~ print("\n\n\t\t [+] Bye bye...\n\n\n")
+			#~ os.system("Pause > Nul")
+			#~ break
+			
+			os.system("cls")
+			
+		except: print("\n\n\t\t [!] Error")
 
 
