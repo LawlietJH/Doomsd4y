@@ -1,10 +1,22 @@
 # -*- Coding: UTF-8 -*-
 # Python 3
-# Doomsd4y
-# By: LawlietJH
-# v1.0.2
-
+#
+#  ██████╗  ██████╗  ██████╗ ███╗   ███╗███████╗██████╗ ██╗  ██╗██╗   ██╗
+#  ██╔══██╗██╔═══██╗██╔═══██╗████╗ ████║██╔════╝██╔══██╗██║  ██║╚██╗ ██╔╝
+#  ██║  ██║██║   ██║██║   ██║██╔████╔██║███████╗██║  ██║███████║ ╚████╔╝ 
+#  ██║  ██║██║   ██║██║   ██║██║╚██╔╝██║╚════██║██║  ██║╚════██║  ╚██╔╝  
+#  ██████╔╝╚██████╔╝╚██████╔╝██║ ╚═╝ ██║███████║██████╔╝     ██║   ██║   
+#  ╚═════╝  ╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═════╝      ╚═╝   ╚═╝   
+#                                                         By: LawlietJH
+#                                                               v1.0.3
+# Fuente: 'ANSI Shadow' - Desde: http://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=Doomsd4y
 import os
+
+
+
+Autor = "LawlietJH"
+Versión = "v1.0.3"
+
 
 
 def getFecha(Fecha):
@@ -259,6 +271,38 @@ def CalcularDD(Dia, Mes, Bisiesto):
 
 
 
+def Chk_Mes(Mesy):
+	
+	Mes = Mesy.lower()
+	
+	try:
+		Mes = int(Mes)
+		
+		if Mes == 1 or Mes == 2 or Mes == 3 or Mes == 4 or Mes == 5 or Mes == 6 \
+		or Mes == 7 or Mes == 8 or Mes == 9 or Mes == 10 or Mes == 11 or Mes == 12:
+			return Mes
+		else:
+			print("\n\n\t [!] No Existe El Mes", Mesy)
+	except:
+		
+		if Mes == "enero" or Mes == "ene": Mes = 1
+		elif Mes == "febrero" or Mes == "feb": Mes = 2
+		elif Mes == "marzo" or Mes == "mar": Mes = 3
+		elif Mes == "abril" or Mes == "abr": Mes = 4
+		elif Mes == "mayo" or Mes == "may": Mes = 5
+		elif Mes == "junio" or Mes == "jun": Mes = 6
+		elif Mes == "julio" or Mes == "jul": Mes = 7
+		elif Mes == "agosto" or Mes == "ago": Mes = 8
+		elif Mes == "septiembre" or Mes == "sep": Mes = 9
+		elif Mes == "octubre" or Mes == "oct": Mes = 10
+		elif Mes == "noviembre" or Mes == "nov": Mes = 11
+		elif Mes == "diciembre" or Mes == "dic": Mes = 12
+		else:
+			print("\n\n\t [!] No Existe El Mes", Mesy)
+			
+		return Mes
+	
+	
 #=======================================================================
 
 DiaSem = 0
@@ -270,11 +314,11 @@ def Main():
 	Fecha = input("\n\n\t Fecha: ")
 	
 	Dia, Mes, Anio = getFecha(Fecha)
-	Dia, Mes, Anio = int(Dia), int(Mes), int(Anio)
-	EsBisiesto = Bisiesto(Anio)
+	Dia, Anio = int(Dia), int(Anio)
 	
-	if(EsBisiesto == True): print("\n\t [*] Bisiesto: Si.")
-	else: print("\n\t [*] Bisiesto: No.")
+	Mes = Chk_Mes(Mes)
+	
+	EsBisiesto = Bisiesto(Anio)
 	
 	FValida = ValidarFecha(Dia, Mes, EsBisiesto)
 	
@@ -282,14 +326,18 @@ def Main():
 		
 		print("\n\t\t [!] Fecha Invalida.")
 		print("\n\n\t Modo de Uso:\n\n\t\t Día/Mes/Año   o   Día-Mes-Año")
-		os.system("Pause > Nul")
+		os.system("Pause > Nul && cls")
+		return
+	
+	if(EsBisiesto == True): print("\n\t [*] Bisiesto: Si.", end="")
+	else: print("\n\t [*] Bisiesto: No.", end="")
 	
 	DBS = getDiaBaseSiglo(Anio)
 	
-	if(DBS==0):   print("\n\t [*] Doomsday Base Del Siglo: Domingo")
-	elif(DBS==2): print("\n\t [*] Doomsday Base Del Siglo: Martes")
-	elif(DBS==3): print("\n\t [*] Doomsday Base Del Siglo: Miercoles")
-	elif(DBS==5): print("\n\t [*] Doomsday Base Del Siglo: Viernes")
+	if(DBS==0):   print("\n\t [*] Doomsday Base Del Siglo: Domingo", end="")
+	elif(DBS==2): print("\n\t [*] Doomsday Base Del Siglo: Martes", end="")
+	elif(DBS==3): print("\n\t [*] Doomsday Base Del Siglo: Miercoles", end="")
+	elif(DBS==5): print("\n\t [*] Doomsday Base Del Siglo: Viernes", end="")
 	
 	DBD = getDiaBaseDecada(Anio)
 	getDoomsday(DBD, DBS)
@@ -317,10 +365,14 @@ def Main():
 #=======================================================================
 
 
+if __name__ == "__main__":
 
-while True:
-	
-	try:
-		Main()
-	except: print("\n\n\t\t Error")
+	while True:
+		
+		try:
+			
+			Main()
+			
+		except: print("\n\n\t\t Error")
+
 
