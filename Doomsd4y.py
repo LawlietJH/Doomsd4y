@@ -8,20 +8,20 @@
 #  ██████╔╝╚██████╔╝╚██████╔╝██║ ╚═╝ ██║███████║██████╔╝     ██║   ██║   
 #  ╚═════╝  ╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═════╝      ╚═╝   ╚═╝   
 #                                                         By: LawlietJH
-#                                                               v1.0.4
+#                                                               v1.0.5
 # Fuente: 'ANSI Shadow' - Desde: http://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=Doomsd4y
 import os
 
 
 
 Autor = "LawlietJH"
-Versión = "v1.0.4"
+Versión = "v1.0.5"
 
 
 
 def getFecha(Fecha):
 	
-	if Fecha == "": print("\n\n\t\t [!] Escribe Una Fecha...", end="")
+	if Fecha == "": print("\n\n\t\t [!] Escribe Una Fecha...")
 	
 	Fecha = Fecha.replace(" ", "").replace("-", "/").replace(".", "/").replace("_", "/").replace(",", "/").replace("|", "/").replace("\\", "/")
 	Fecha = Fecha.split("/")
@@ -285,18 +285,18 @@ def Chk_Mes(Mesy):
 			print("\n\n\t [!] No Existe El Mes", Mesy)
 	except:
 		
-		if Mes == "enero" or Mes == "ene": Mes = 1
-		elif Mes == "febrero" or Mes == "feb": Mes = 2
-		elif Mes == "marzo" or Mes == "mar": Mes = 3
-		elif Mes == "abril" or Mes == "abr": Mes = 4
-		elif Mes == "mayo" or Mes == "may": Mes = 5
-		elif Mes == "junio" or Mes == "jun": Mes = 6
-		elif Mes == "julio" or Mes == "jul": Mes = 7
-		elif Mes == "agosto" or Mes == "ago": Mes = 8
+		if   Mes == "enero"		 or Mes == "ene": Mes = 1
+		elif Mes == "febrero"	 or Mes == "feb": Mes = 2
+		elif Mes == "marzo"		 or Mes == "mar": Mes = 3
+		elif Mes == "abril"		 or Mes == "abr": Mes = 4
+		elif Mes == "mayo"		 or Mes == "may": Mes = 5
+		elif Mes == "junio"		 or Mes == "jun": Mes = 6
+		elif Mes == "julio"		 or Mes == "jul": Mes = 7
+		elif Mes == "agosto"	 or Mes == "ago": Mes = 8
 		elif Mes == "septiembre" or Mes == "sep": Mes = 9
-		elif Mes == "octubre" or Mes == "oct": Mes = 10
-		elif Mes == "noviembre" or Mes == "nov": Mes = 11
-		elif Mes == "diciembre" or Mes == "dic": Mes = 12
+		elif Mes == "octubre"	 or Mes == "oct": Mes = 10
+		elif Mes == "noviembre"	 or Mes == "nov": Mes = 11
+		elif Mes == "diciembre"	 or Mes == "dic": Mes = 12
 		else:
 			print("\n\n\t [!] No Existe El Mes", Mesy)
 			
@@ -324,7 +324,7 @@ def Main():
 	
 	if(FValida == False):
 		
-		print("\n\t\t [!] Fecha Invalida.")
+		print("\n\t\t [!] Fecha NO Valida.")
 		print("\n\n\t Modo de Uso:\n\n\t\t Día/Mes/Año   o   Día-Mes-Año")
 		os.system("Pause > Nul && cls")
 		return
@@ -379,8 +379,12 @@ if __name__ == "__main__":
 			#~ os.system("Pause > Nul")
 			#~ break
 			
-			os.system("cls")
+			os.system("Cls")
 			
-		except: print("\n\n\t\t [!] Error")
+		except:
+			
+			print("\n\t\t [!] Fecha NO Valida.")
+			print("\n\n\t Modo de Uso:\n\n\t\t Día/Mes/Año   o   Día-Mes-Año")
+			os.system("Pause > Nul && cls")
 
 
